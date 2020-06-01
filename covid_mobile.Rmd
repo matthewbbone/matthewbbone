@@ -5,6 +5,12 @@ date: "6/1/20"
 output: html_document
 ---
 
+**Latest Update: 6/1/20**
+
+This data visualization allows you to explore the mobility data published by [Google](https://www.google.com/covid19/mobility/) and the COVID-19 case data from [New York Times](https://github.com/nytimes/covid-19-data) at the state-level.
+
+The first plot shows the mobility trends for different classes of areas such as Residential, Workplace, and other categories. The value is the percent change in activity from baseline measurements. For instance, if the value is 50, there has been a 50% increase in mobility, alternatively if there was a -50 there has been a 50% decrease in mobility. The second plot shows the number of cases over the same time period. 
+
 ```{r, setup, include=FALSE}
 library(mosaic)    # Load additional packages here 
 library(ggformula) # formula interface to ggplot2
@@ -103,9 +109,9 @@ widgets <- bscols(
 )
 
 
-cmb_fig <- subplot(move_fig, covid_fig, nrows = 2, margin = .04) %>%
+cmb_fig <- subplot(move_fig, covid_fig, nrows = 2, margin = .04, shareX = T) %>%
   layout(annotations = list(
-    list(x = .05, y = .9, text = sprintf("<b>Activity<b>"), showarrow = F, xref = 'paper'
+    list(x = .05, y = .9, text = sprintf("<b>Mobility<b>"), showarrow = F, xref = 'paper'
          , yref = 'paper'),
     list(x = .05, y = .2, text = sprintf("<b>Cases<b>"), showarrow = F, xref = 'paper'
          , yref = 'paper')

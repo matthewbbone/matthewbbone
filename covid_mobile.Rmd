@@ -2,16 +2,7 @@
 title: "State Mobility and COVID Cases"
 author: "Matthew Bone"
 date: "6/1/20"
-output: 
-  html_document:
-    fig_height: 6
-    fig_width: 10
-  pdf_document:
-    fig_height: 6
-    fig_width: 10
-  word_document:
-    fig_height: 6
-    fig_width: 10
+output: html_document
 ---
 
 ```{r, setup, include=FALSE}

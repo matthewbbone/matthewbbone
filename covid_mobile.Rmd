@@ -97,7 +97,7 @@ move_fig <- plot_ly(key, x = ~date, y = ~perc_change, showlegend = F) %>%
          yaxis = list(title = "Percent Change from Baseline"))
 
 covid_fig <- plot_ly(key, x = ~date, y = ~cases, showlegend = F) %>%
-  add_lines(color = ~state, hovertemplate = paste('<b>% Cases:</b> %{y}<br>',
+  add_lines(color = ~state, hovertemplate = paste('<b>Cases:</b> %{y}<br>',
                                                   '<b>Date:</b> %{x}')) %>%
   layout(xaxis = list(title = "Date"),
          yaxis = list(title = "Cases"))

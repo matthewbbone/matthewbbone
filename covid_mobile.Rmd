@@ -1,0 +1,129 @@
+---
+title: "State Mobility and COVID Cases"
+author: "Matthew Bone"
+date: "6/1/20"
+output: 
+  html_document:
+    fig_height: 6
+    fig_width: 10
+  pdf_document:
+    fig_height: 6
+    fig_width: 10
+  word_document:
+    fig_height: 6
+    fig_width: 10
+---
+
+```{r, setup, include=FALSE}
+library(mosaic)    # Load additional packages here 
+library(ggformula) # formula interface to ggplot2
+library(readr)
+library(tidyverse)
+library(plotly)
+library(crosstalk)
+
+# Some customization.  You can alter or delete as desired (if you know what you are doing).
+
+theme_set(theme_bw()) # change theme for ggplot2
+trellis.par.set(theme=theme.mosaic()) # change default color scheme for lattice
+
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+```{r, include  = FALSE}
+url1 <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
+
+mobility <- url1 %>%
+  read_csv(
+    col_types = cols(
+      .default = col_double(),
+      `country_region_code` = col_character(),
+      `country_region` = col_character(),
+      `sub_region_1` = col_character(),
+      `sub_region_2` = col_character(),
+      `date` = col_date()
+    )
+  ) %>%
+  filter(country_region == "United States", !is.na(sub_region_1), is.na(sub_region_2)) %>%
+  mutate(state = sub_region_1,
+         `Retail/Recreation` = retail_and_recreation_percent_change_from_baseline,
+         `Grocery/Pharmacy` = grocery_and_pharmacy_percent_change_from_baseline,
+         `Parks` = parks_percent_change_from_baseline,
+         `Transit/Stations` = transit_stations_percent_change_from_baseline,
+         `Workplaces` = workplaces_percent_change_from_baseline,
+         `Residential` = residential_percent_change_from_baseline) %>%
+  select(date, state, 
+         `Retail/Recreation`, 
+         `Grocery/Pharmacy`, 
+         `Parks`, 
+         `Transit/Stations`, 
+         `Workplaces`, 
+         `Residential`)
+```
+
+```{r, include = FALSE}
+url3 <- "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
+
+covid_state <- url3 %>%
+  read_csv(
+    col_types = cols(
+      .default = col_double(),
+      `date` = col_date(),
+      `state` = col_character()
+    )
+  ) %>%
+  select(-fips)
+
+```
+
+```{r, include = FALSE}
+state_dat <- covid_state %>% 
+  left_join(mobility) %>% 
+  arrange(state)
+```
+
+```{r, echo = FALSE, warning = FALSE}
+long_state <- state_dat %>%
+  pivot_longer(-(1:4),
+               names_to = "area_type",
+               values_to = "perc_change")
+
+key <- highlight_key(long_state)
+
+move_fig <- plot_ly(key, x = ~date, y = ~perc_change, showlegend = F) %>%
+  add_lines(color = ~area_type, text = ~state, hovertemplate = paste('<b>State:</b> %{text}<br>',
+                                                                     '<b>% Change:</b> %{y}<br>',
+                                                                     '<b>Date:</b> %{x}')) %>%
+  layout(xaxis = list(title = "Date"),
+         yaxis = list(title = "Percent Change from Baseline"))
+
+covid_fig <- plot_ly(key, x = ~date, y = ~cases, showlegend = F) %>%
+  add_lines(color = ~state, hovertemplate = paste('<b>% Cases:</b> %{y}<br>',
+                                                  '<b>Date:</b> %{x}')) %>%
+  layout(xaxis = list(title = "Date"),
+         yaxis = list(title = "Cases"))
+
+widgets <- bscols(
+  widths = c(3,9),
+  filter_select("state", "Choose State", key, ~state),
+  filter_checkbox("type", "Choose Area Type", key, ~area_type, inline = T)
+)
+
+
+cmb_fig <- subplot(move_fig, covid_fig, nrows = 2, margin = .04) %>%
+  layout(annotations = list(
+    list(x = .05, y = .9, text = sprintf("<b>Activity<b>"), showarrow = F, xref = 'paper'
+         , yref = 'paper'),
+    list(x = .05, y = .2, text = sprintf("<b>Cases<b>"), showarrow = F, xref = 'paper'
+         , yref = 'paper')
+  ))
+
+
+final_plot <- bscols(widths = c(12,12), 
+       widgets,
+       cmb_fig)
+
+final_plot
+```

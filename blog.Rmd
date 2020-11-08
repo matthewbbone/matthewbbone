@@ -1,0 +1,14 @@
+---
+title: "Blog Posts"
+output: html_document
+---
+
+
+
+### State Mobility and COVID Cases 
+
+[See more...](https://matthewbbone.github.io/matthewbbone/covid_mobile.html)
+
+<center>
+<img src="blogPosts/covid.PNG" width="500">
+</center>

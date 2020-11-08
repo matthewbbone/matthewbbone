@@ -4,7 +4,10 @@ include: ["covidViz", "philNet"]
 navbar:
   title: "Matthew B. Bone"
   left:
-    - text: "Data Visualizations"
+    - text: "Home"
+      href: https://matthewbbone.github.io/matthewbbone/index.html
+    - text: "Blog Posts"
+      href: https://matthewbbone.github.io/matthewbbone/blog.html
   right:
     - icon: fa-envelope fa-lg
       href: matthewbbone@gmail.com

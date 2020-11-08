@@ -62,7 +62,7 @@ philosophernet <- visNetwork(nodes, edges, width = "100%") %>%
 ```
 
 <div style="float:right;position: relative;margin:0px 15px">
-<img src="philNet/whitehead.PNG" width="200">
+<img src="philNet/whitehead.PNG" width="160">
 </div>
 
 <center>

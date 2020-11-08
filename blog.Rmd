@@ -1,9 +1,15 @@
 ---
-title: "Blog Posts"
+title: "Blog"
 output: html_document
 ---
 
+### Philosopher Net 
 
+[See more...](https://matthewbbone.github.io/matthewbbone/philnetviz.html)
+
+<center>
+<img src="blogPosts/philnet.PNG" width="500">
+</center>
 
 ### State Mobility and COVID Cases 
 

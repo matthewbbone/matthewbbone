@@ -6,7 +6,7 @@ navbar:
   left:
     - text: "Home"
       href: https://matthewbbone.github.io/matthewbbone/index.html
-    - text: "Blog Posts"
+    - text: "Blog"
       href: https://matthewbbone.github.io/matthewbbone/blog.html
   right:
     - icon: fa-envelope fa-lg

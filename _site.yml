@@ -1,5 +1,6 @@
 name: "Matthew B. Bone"
 output_dir: "."
+include: ["covidViz", "philNet"]
 navbar:
   title: "Matthew B. Bone"
   left:

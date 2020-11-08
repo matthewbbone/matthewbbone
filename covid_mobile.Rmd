@@ -18,6 +18,8 @@ library(readr)
 library(tidyverse)
 library(plotly)
 library(crosstalk)
+library(leaflet)
+library(htmlwidgets)
 
 # Some customization.  You can alter or delete as desired (if you know what you are doing).
 
@@ -124,3 +126,5 @@ final_plot <- bscols(widths = c(12,12),
 
 final_plot
 ```
+
+

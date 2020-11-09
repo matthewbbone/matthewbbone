@@ -30,11 +30,11 @@ Many of these posts include data visualizations or models. All of the code for t
 
 ### Numbers don’t Lie… 
 
+[See more...](https://matthewbbone.github.io/matthewbbone/numberslie.html)
+
 <center>
 <img src="numbersLie/police.jpg" width="500">
 </center>
- 
-[See more...](https://matthewbbone.github.io/matthewbbone/numberslie.html)
 
 ### Language Competition: An Abrams-Strogatz inspired agent-based model 
 

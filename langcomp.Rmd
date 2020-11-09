@@ -1,0 +1,55 @@
+---
+title: "Language Competition: An Abrams-Strogatz inspired agent-based model"
+date: "6/4/20"
+---
+
+<style type="text/css">
+h1.title {
+  text-align: center;
+}
+h4.date {
+  text-align: center;
+}
+</style>
+
+<center>
+<img src="langComp/lang.png" width="500">
+</center>
+
+### What is it?
+
+This model is loosely-inspired by the paper “Agent Based Models of Language Competition” by Vazquez, Castello, and San Miguel. Its universe is a square lattice that mirrors an environment in which inidividuals, or patches, can interact. Each patch is a local individual that is influenced by surrounding patches (which patches is determined by the connectivity parameter). The blue and red represents the language of that individual. In this model there is no possiblity of bilingual individuals.
+
+### How it works
+
+Each patch is an individual that speaks either language A or B. The patches are red if they speak language A and blue if they speak language B. In the setup, the grid has red and blue patches setup randomly in the grid where the percent of patches that are red is equal to ‘int-percent-A’.
+
+For each step, every patch checks the patches within a certain radius of it. This radius is equal to the diagonal of the square lattice multiplied by ‘connectivity’. Therefore, when ‘connectivity’ is 1, it means the state-space is fully connected. The smaller connectivity is, the more localized each patches reference space becomes.
+
+The higher proportion of patches within the radius that are red/speak language A, the more likely the patch is to switch to A. However, this is weighted by ‘A-prestige’ and ‘B-prestige’ and altered by the volatility parameter.
+
+### Parameters
+
+Connectivity – a measure of local-global connectivity where larger values correspond to more connected state-spaces. At very low connectivity (usually less than .03) this may cause an error since the patches don’t reference any other patches.
+
+A-prestige & B-prestige: prestige refers to “a symmetry breaking parameter favoring the state associated with on or other language which accounts for the differences in the social status between the two languages in competition” (Vazquez, et al.). What’s important here is relative prestige. However, I’ve found that the model is very sensitive to these parameters so even very small preferences towards one or the other results in a strong domination of the more prestigious language.
+
+Init-percent-A – this is the initial percent of patches that speak language A
+
+Volatility – this parameter “determines the functional form of the switching probability” (Vazquez, et al.). Essentially, it multiplies the probability of switching to the opposite patch by its value. (e.g. if there was a 20% chance that a patch would switch given the patches nearby and the prestige of each language but volatility = .5 then there would be a 10% chance the patch would switch)
+
+### Things to Try
+
+Parameterization: connectivity = .05 A-prestige = 1 B-prestige = 1 init-percent-A = .15 volatility = .05
+
+This often results in a persisting, localized, minority language.
+
+### References
+
+F Vasquez, X Castello, and M San Migue. “Agent Based Models of Language Competition: Macroscopic descriptions and order-disorder transitions” Journal of Statistical Mechanics (2010)
+
+Download Model File [Here](https://raw.githubusercontent.com/matthewbbone/netlogo-analyses/master/LanguageComp.nlogo?token=AGJ5ACCBZZTKI7ILBRPNUQC7PD65I) (save with file extension .nlogo)
+
+Run the Model [Here](https://netlogoweb.org/launch)
+
+The structure of this model followed one of the models from the default Models Library that came with NetLogo called “Altruism”. You can read more about the model [here](http://ccl.northwestern.edu/rp/each/index.shtml)

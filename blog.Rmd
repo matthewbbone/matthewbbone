@@ -1,7 +1,16 @@
 ---
 title: "Blog"
-output: html_document
 ---
+<style type="text/css">
+h1.title {
+  text-align: center;
+}
+</style>
+
+<center>
+Many of these posts include data visualizations or models. All of the code for these projects can be found at my github account, linked in the header.
+
+</center>
 
 ### Philosopher Net 
 
@@ -9,6 +18,22 @@ output: html_document
 
 <center>
 <img src="blogPosts/philnet.PNG" width="500">
+</center>
+
+### Numbers don’t Lie… 
+
+<center>
+<img src="numbersLie/police.jpg" width="500">
+</center>
+ 
+[See more...](https://matthewbbone.github.io/matthewbbone/numberslie.html)
+
+### Language Competition: An Abrams-Strogatz inspired agent-based model 
+
+[See more...](https://matthewbbone.github.io/matthewbbone/langcomp.html)
+
+<center>
+<img src="blogPosts/lang.PNG" width="400">
 </center>
 
 ### State Mobility and COVID Cases 

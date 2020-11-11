@@ -16,6 +16,8 @@ h4.date {
 <img src="langComp/lang.png" width="500">
 </center>
 
+In this post I present a netLogo model I developed while going through the Santa Fe Institute's Complexity Science course. At the bottom of the page there are links to download the model's source code and to a website that lets you run netLogo models online. 
+
 ### What is it?
 
 This model is loosely-inspired by the paper “Agent Based Models of Language Competition” by Vazquez, Castello, and San Miguel. Its universe is a square lattice that mirrors an environment in which inidividuals, or patches, can interact. Each patch is a local individual that is influenced by surrounding patches (which patches is determined by the connectivity parameter). The blue and red represents the language of that individual. In this model there is no possiblity of bilingual individuals.

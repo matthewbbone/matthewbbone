@@ -54,4 +54,4 @@ Download Model File [Here](https://raw.githubusercontent.com/matthewbbone/netlog
 
 Run the Model [Here](https://netlogoweb.org/launch)
 
-The structure of this model followed one of the models from the default Models Library that came with NetLogo called “Altruism”. You can read more about the model [here](http://ccl.northwestern.edu/rp/each/index.shtml)
+The structure of this model followed one of the models from the default Models Library that came with NetLogo called “Altruism”. You can read more about the model [here](https://ccl.northwestern.edu/rp/each/index.shtml)

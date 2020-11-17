@@ -38,7 +38,7 @@ edges <- read_csv("philNet/edges.csv")
 
 nodes <- read_csv("philNet/nodes.csv") %>%
   arrange(born) %>%
-  mutate(title = paste0("<h3 style='color:Black;font-size:8px;'>", label, "</h3>"),
+  mutate(font.size = 0,
          indegree = indegree(id, edges),
          outdegree = outdegree(id, edges),
          born = as.numeric(substr(born, 1, 4)),
@@ -48,8 +48,13 @@ nodes <- read_csv("philNet/nodes.csv") %>%
          died = if_else(born < 0, -died, died),
          level = as.numeric(cut_number(born, 50)),
          value = outdegree,
-         color = colorize(indegree)) %>%
-  filter(!is.na(born))
+         color = colorize(indegree),
+         title = paste0("<h3 style='color:Black;font-size:8px;'>", 
+                        "<p>", label, "</p>",
+                        "<p>Born: ", born, "</p>",
+                        "<p>Died: ", died, "</p>",
+                        "</h3>"),) %>%
+  filter(!is.na(born) & !(label %in% c('Ibn Hibban', 'Al-Hakim al-Nishapuri')))
 
 nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
 ```
@@ -57,20 +62,29 @@ nodes[["color"]][is.na(nodes[["color"]])] <- "#00008B"
 ```{r, echo=FALSE}
 philosophernet <- visNetwork(nodes, edges, width = "100%") %>%
   visPhysics(enabled = T,
-             hierarchicalRepulsion = list(nodeDistance = 500,
-                                          centralGravity = .1)) %>%
-  visEdges(smooth = F, arrows = 'to') %>%
+             maxVelocity = 10,
+             minVelocity = 5,
+             timestep = .5,
+             hierarchicalRepulsion = list(nodeDistance = 100),
+             stabilization = list(iterations = 500)) %>%
+  visEdges(smooth = F, 
+           arrows = 'to',
+           width = .2) %>%
   visHierarchicalLayout(enabled = T, 
                         direction = "LR", 
-                        levelSeparation = 300, 
+                        levelSeparation = 50, 
                         sortMethod = "directed",
                         blockShifting = T) %>%
   visOptions(highlightNearest = list(enabled = T, 
                                      algorithm = "hierarchical",
                                      degree = list(from = 0, to = 2)),
              nodesIdSelection = list(enabled = T)) %>%
-  visNodes(scaling = list(max = 100))
+  visNodes(scaling = list(min = 5, max = 30))
+
+philosophernet %>%
+  visSave(file = "C:/Users/matth/Desktop/Coding Projects/Rstudio/matthewbbone/philNet/philosophernet.html")
 ```
+
 
 <div style="float:right;position: relative;margin:0px 15px">
 <img src="philNet/whitehead.PNG" width="160">

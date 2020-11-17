@@ -15,7 +15,9 @@ This is a list of all the projects featured on the @amateurdata instagram page
 
 ### Philosopher Net 
 
-[See more...](https://matthewbbone.github.io/matthewbbone/philnetviz.html)
+[Plot](https://www.matthewbbone.com/philNet/philosophernet.html)
+
+[GitHub Repo](https://github.com/matthewbbone/philosophernet)
 
 <center>
 <img src="blogPosts/philnet.PNG" width="500">
@@ -23,7 +25,9 @@ This is a list of all the projects featured on the @amateurdata instagram page
 
 ### State Mobility and COVID Cases 
 
-[See more...](https://matthewbbone.github.io/matthewbbone/covid_mobile.html)
+[Plot](https://www.matthewbbone.com/covidMobile/covidplot.html)
+
+[GitHub Repo](https://github.com/matthewbbone/matthewbbone/blob/master/covid_mobile.Rmd)
 
 <center>
 <img src="blogPosts/covid.PNG" width="500">

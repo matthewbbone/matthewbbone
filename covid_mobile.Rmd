@@ -27,6 +27,7 @@ library(plotly)
 library(crosstalk)
 library(leaflet)
 library(htmlwidgets)
+library(htmltools)
 
 # Some customization.  You can alter or delete as desired (if you know what you are doing).
 
@@ -130,6 +131,8 @@ cmb_fig <- subplot(move_fig, covid_fig, nrows = 2, margin = .04, shareX = T) %>%
 final_plot <- bscols(widths = c(12,12), 
        widgets,
        cmb_fig)
+
+save_html(final_plot, file = "C:/Users/matth/Desktop/Coding Projects/Rstudio/matthewbbone/covidMobile/covidplot.html")
 
 final_plot
 ```

@@ -8,6 +8,8 @@ navbar:
       href: https://matthewbbone.github.io/matthewbbone/index.html
     - text: "Blog"
       href: https://matthewbbone.github.io/matthewbbone/blog.html
+    - text: "Amateur Projects"
+      href: https://matthewbbone.github.io/matthewbbone/amateurprojects.html
   right:
     - icon: fa-envelope fa-lg
       href: matthewbbone@gmail.com
@@ -15,6 +17,8 @@ navbar:
       href: http://github.com/matthewbbone
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/matthew-bone-05a73a160/
+    - icon: fa-instagram fa-lg
+      href: https://www.instagram.com/amateurdata/
 output:
   html_document:
     theme: paper

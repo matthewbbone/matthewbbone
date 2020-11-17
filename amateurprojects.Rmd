@@ -1,0 +1,30 @@
+---
+title: "Amateur Projects"
+---
+<style type="text/css">
+h1.title {
+  text-align: center;
+}
+</style>
+
+<center>
+
+This is a list of all the projects featured on the @amateurdata instagram page
+
+</center>
+
+### Philosopher Net 
+
+[See more...](https://matthewbbone.github.io/matthewbbone/philnetviz.html)
+
+<center>
+<img src="blogPosts/philnet.PNG" width="500">
+</center>
+
+### State Mobility and COVID Cases 
+
+[See more...](https://matthewbbone.github.io/matthewbbone/covid_mobile.html)
+
+<center>
+<img src="blogPosts/covid.PNG" width="500">
+</center>

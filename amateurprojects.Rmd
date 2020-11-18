@@ -13,6 +13,14 @@ This is a list of all the projects featured on the @amateurdata instagram page
 
 </center>
 
+### La Corona Model
+
+[Github Repo](https://github.com/matthewbbone/complexity-science/blob/master/GA-la-corona-model.ipynb)
+
+<center>
+<img src="blogPosts/lacorona.PNG" width="500">
+</center>
+
 ### Philosopher Net 
 
 [Plot](https://www.matthewbbone.com/philNet/philosophernet.html)

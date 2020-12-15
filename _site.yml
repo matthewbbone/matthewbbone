@@ -8,8 +8,6 @@ navbar:
       href: https://matthewbbone.github.io/matthewbbone/index.html
     - text: "Blog"
       href: https://matthewbbone.github.io/matthewbbone/blog.html
-    - text: "Amateur Projects"
-      href: https://matthewbbone.github.io/matthewbbone/amateurprojects.html
   right:
     - icon: fa-envelope fa-lg
       href: matthewbbone@gmail.com

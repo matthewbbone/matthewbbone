@@ -338,14 +338,14 @@ h4.date {
   text-align: center;
 }
 </style>
-<p>This summer I took the Santa Fe Institute’s Introduction to Complexity Course where I learned about the field of complexity science and the core ideas that drive it. These ideas included fractal geometry, genetic algorithms, cellular automata, networks, and scaling. I found genetic algorithms to be particularly interesting so, in addition to the normal coursework, I developed three implementations of genetic algorithms to solve three types of problems: the traveling salesman problem, finding an “interesting” elementary cellular automata, and a COVID-themed El Farol problem.</p>
+<p>This summer I took the Santa Fe Institute’s Introduction to Complexity Course where I learned about the field of complexity science and the core ideas that drive it. These ideas included fractal geometry, genetic algorithms, cellular automata, networks, and scaling. I found genetic algorithms to be particularly interesting so, in addition to the normal coursework, I developed three implementations of genetic algorithms to solve three types of problems: the traveling salesman problem, finding an “interesting” elementary cellular automata, and a COVID-themed El Farol problem. All of the code for these implementation have been heavily annotated and should be relatively easy to understand.</p>
 <div id="traveling-salesman" class="section level3">
 <h3>Traveling Salesman</h3>
 <p>The first and easiest one to implement was the traveling salesman problem. I began by setting up a random city generator that would generate N number of cities randomly placed in grid.</p>
 <center>
 <img src="complexitySci/TSPgrid.PNG" width="300">
 </center>
-<p>Then I created a population of randomly generated possible routes that began and ended at city 0. Of course the random routes performed terribly with an average route distance of over 10,000 for a map of 20 cities in a 1000x1000 grid. However, through some tweaking of the hyperparameters I was able to get a route of the distance 4279.89 which essentially makes a loop around the cities. The best route I could find by hand was 4258.93. The solution found by the genetic algorithm for the map above was:</p>
+<p>Then I created a population of randomly generated possible routes between these cities that began and ended at city 0. Of course the random routes performed terribly with an average route distance of over 10,000 for a map of 20 cities in a 1000x1000 grid. My genetic algorithm was able to find a route of the distance 4279.89 which essentially makes a loop around the cities. The best route I could find by hand was 4258.93. The solution found by the genetic algorithm for the map above was:</p>
 <center>
 [0, 17, 14, 10, 4, 16, 9, 12, 8, 11, 18, 5, 7, 13, 15, 19, 1, 3, 6, 2]
 </center>
@@ -354,7 +354,8 @@ h4.date {
 [0, 17, 14, 10, 4, 11, 8, 18, 12, 16, 9, 7, 5, 13, 15, 19, 1, 3, 6, 2]
 </center>
 <p>As you can see (especially if you trace it to the map) the solutions are very similar. This indicates that the genetic algorithm is likely to produce good approximations for the traveling salesman problem.</p>
-<p>The breeding algorithm I used took two parents from the “elite” of the previous generation and iterated through their routes, randomly selecting one or the other’s city for the respective ith index of their child. If this caused a child to revisit a city, it would randomly select a yet-to-be visited city instead. Then there was a random chance that it would mutate by swapping pairs of cities (the likelihood and maximum number of swaps was determined by hyperparameters). Each successive generation was the previous one’s “elite” plus however many of these children were needed to maintain the same population size. The fitness of the population during this process was marked by typical periods of slow and rapid improvement.</p>
+<p>The genetic algorithm I implemented simulated biological evolution but the “organisms” that make up the “population” are routes through these cities. In each generation of this population the shortest routes, or the elites, are selected and pulled into the next generation. Then they “breed” in order to replace the discarded long routes.</p>
+<p>The breeding algorithm I used took two parents from the “elite” of the previous generation and iterated through their routes, randomly selecting one or the other’s city for the respective <em>ith</em> index of their child. If this caused a child to revisit a city, it would randomly select a yet-to-be visited city instead. Then there was a random chance that it would mutate by swapping pairs of cities (the likelihood and maximum number of swaps was determined by hyperparameters). Each successive generation was the previous one’s “elite” plus however many of these children were needed to maintain the same population size. The fitness of the population during this process was marked by typical periods of slow and rapid improvement.</p>
 <center>
 <img src="complexitySci/TSPfitness.PNG" width="300">
 </center>
@@ -365,11 +366,12 @@ h4.date {
 <center>
 <img src="complexitySci/elemauto.PNG" width="300">
 </center>
-<p>I thought it would be interesting to try and find “interesting” patterns with a genetic algorithm. For instance, one can see above that rule 2 and 9 may be seen as less interesting than rule 1, while rule 10 seems very interesting. However, in order to do this I was going to have to find a way to quantify “interesting”. I eventually decided on using whether or not a rule’s grid had localized minorities as my metric. A localized minority is an nxn square (size determined by a parameter) of the color that is a global minority. For instance, in the above pictures, rule 9 clearly has a majority of black tiles but no significant square areas that are white. On the other hand, rule 10 looks as though it may have a global majority of black but it has localized minorities of white.</p>
+<p>I thought it would be interesting to try and find “interesting” patterns with a genetic algorithm. For instance, one can see above that rule 2 and 9 may be seen as less interesting than rule 1, while rule 10 seems very interesting. However, in order to do this I was going to have to find a way to quantify “interesting”. I eventually decided on using whether or not a rule’s grid had localized minorities as my metric. A localized minority is an nxn square (size determined by a parameter) of the color that is a global minority. For instance, in the above pictures, rule 9 seems to have a majority of black tiles but no significant square areas that are white. On the other hand, rule 10 looks as though it may have a global majority of black but it has localized minorities of white.</p>
 <p>Using this metric I was able to semi-consistently find “interesting” looking cellular automata. However, it also often occurred that I just found patterns like rule 2 above with wider stripes of the minority color. These ones I wouldn’t consider interesting but they certainly do fit my formalized definition. An example of a more interesting one can be found below:</p>
 <center>
 <img src="complexitySci/cellauto.PNG" width="300">
 </center>
+<p>The genetic algorithm I used for this model was very similar to the one I used for the traveling salesman problem since both routes and rules are just arrays of numbers.</p>
 </div>
 <div id="la-corona-model" class="section level3">
 <h3>La Corona Model</h3>

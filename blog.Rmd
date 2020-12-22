@@ -12,9 +12,11 @@ Many of these posts include data visualizations or models. All of the code for t
 
 </center>
 
-### Philosopher Net 
+### Philosopher Net
 
 [See more...](https://matthewbbone.github.io/matthewbbone/philnetviz.html)
+
+<div style="text-align: right">10/15/20</div>
 
 <center>
 <img src="blogPosts/philnet.PNG" width="500">
@@ -24,6 +26,8 @@ Many of these posts include data visualizations or models. All of the code for t
 
 [See more...](https://matthewbbone.github.io/matthewbbone/complexity.html)
 
+<div style="text-align: right">9/12/20</div>
+
 <center>
 <img src="blogPosts/lacorona.PNG" width="500">
 </center>
@@ -31,6 +35,8 @@ Many of these posts include data visualizations or models. All of the code for t
 ### Numbers don’t Lie… 
 
 [See more...](https://matthewbbone.github.io/matthewbbone/numberslie.html)
+
+<div style="text-align: right">6/10/20</div>
 
 <center>
 <img src="numbersLie/police.jpg" width="500">
@@ -47,6 +53,8 @@ Many of these posts include data visualizations or models. All of the code for t
 ### State Mobility and COVID Cases 
 
 [See more...](https://matthewbbone.github.io/matthewbbone/covid_mobile.html)
+
+<div style="text-align: right">6/1/20</div>
 
 <center>
 <img src="blogPosts/covid.PNG" width="500">

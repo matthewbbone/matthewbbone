@@ -341,21 +341,21 @@ h4.date {
 <center>
 <img src="langComp/lang.PNG" width="500">
 </center>
-<p>In this post I present a netLogo model I developed while going through the Santa Fe Institute’s Complexity Science course. At the bottom of the page there are links to download the model’s source code and to a website that lets you run netLogo models online.</p>
+<p><em>In this post I present a netLogo model I developed while going through the Santa Fe Institute’s Complexity Science course. At the bottom of the page there are links to download the model’s source code and to a website that lets you run netLogo models online.</em></p>
 <div id="what-is-it" class="section level3">
 <h3>What is it?</h3>
-<p>This model is loosely-inspired by the paper “Agent Based Models of Language Competition” by Vazquez, Castello, and San Miguel. Its universe is a square lattice that mirrors an environment in which inidividuals, or patches, can interact. Each patch is a local individual that is influenced by surrounding patches (which patches is determined by the connectivity parameter). The blue and red represents the language of that individual. In this model there is no possiblity of bilingual individuals.</p>
+<p>This model is loosely-inspired by the paper “Agent Based Models of Language Competition” by Vazquez, Castello, and San Miguel. This paper compares a few different types of language competition models using 2d lattices and complex networks. I used the paper as a guide for building a simple model in netLogo. My model is a square lattice that simulates an environment in which individuals, or patches, can interact. Each patch is a local individual that is influenced by surrounding patches (which patches is determined by the connectivity parameter). The blue and red represents the language of that individual. In this model there is no possibility of bilingual individuals.</p>
 </div>
 <div id="how-it-works" class="section level3">
 <h3>How it works</h3>
 <p>Each patch is an individual that speaks either language A or B. The patches are red if they speak language A and blue if they speak language B. In the setup, the grid has red and blue patches setup randomly in the grid where the percent of patches that are red is equal to ‘int-percent-A’.</p>
-<p>For each step, every patch checks the patches within a certain radius of it. This radius is equal to the diagonal of the square lattice multiplied by ‘connectivity’. Therefore, when ‘connectivity’ is 1, it means the state-space is fully connected. The smaller connectivity is, the more localized each patches reference space becomes.</p>
-<p>The higher proportion of patches within the radius that are red/speak language A, the more likely the patch is to switch to A. However, this is weighted by ‘A-prestige’ and ‘B-prestige’ and altered by the volatility parameter.</p>
+<p>For each step, every patch checks the patches within a certain radius of it. This radius is equal to the diagonal of the square lattice multiplied by ‘connectivity’. Therefore, when ‘connectivity’ is 1, it means the 2d lattice is fully connected. The smaller connectivity is, the more localized each patches reference space becomes.</p>
+<p>The higher proportion of patches within the radius that are red/speak language A, the more likely the patch is to switch to A. All else equal, twice the number of patches in the radius that speak A, twice the probability the patch will switch to A. However, this is weighted by ‘A-prestige’ and ‘B-prestige’ and altered by the volatility parameter.</p>
 </div>
 <div id="parameters" class="section level3">
 <h3>Parameters</h3>
 <p>Connectivity – a measure of local-global connectivity where larger values correspond to more connected state-spaces. At very low connectivity (usually less than .03) this may cause an error since the patches don’t reference any other patches.</p>
-<p>A-prestige &amp; B-prestige: prestige refers to “a symmetry breaking parameter favoring the state associated with on or other language which accounts for the differences in the social status between the two languages in competition” (Vazquez, et al.). What’s important here is relative prestige. However, I’ve found that the model is very sensitive to these parameters so even very small preferences towards one or the other results in a strong domination of the more prestigious language.</p>
+<p>A-prestige &amp; B-prestige: prestige refers to “a symmetry breaking parameter favoring the state associated with one or the other language which accounts for the differences in the social status between the two languages in competition” (Vazquez, et al.). What’s important here is relative prestige. However, I’ve found that the model is very sensitive to these parameters so even very small preferences towards one or the other results in a strong domination of the more prestigious language.</p>
 <p>Init-percent-A – this is the initial percent of patches that speak language A</p>
 <p>Volatility – this parameter “determines the functional form of the switching probability” (Vazquez, et al.). Essentially, it multiplies the probability of switching to the opposite patch by its value. (e.g. if there was a 20% chance that a patch would switch given the patches nearby and the prestige of each language but volatility = .5 then there would be a 10% chance the patch would switch)</p>
 </div>

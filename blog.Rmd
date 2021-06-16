@@ -12,6 +12,16 @@ Many of these posts include data visualizations or models. All of the code for t
 
 </center>
 
+### Community Detection with the Philosopher Net
+
+[See more...](https://matthewbbone.github.io/matthewbbone/commDetect.html)
+
+<div style="text-align: right">6/15/21</div>
+
+<center>
+<img src="blogPosts/commDetect.PNG" width="500">
+</center>
+
 ### Philosopher Net
 
 [See more...](https://matthewbbone.github.io/matthewbbone/philnetviz.html)

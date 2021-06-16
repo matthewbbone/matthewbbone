@@ -1,18 +1,16 @@
 ---
-title: "Philosopher Net Community Detection"
-author: "Matthew Bone"
-date: "04/02/2021"
-output: 
-  html_document:
-    fig_height: 3
-    fig_width: 5
-  pdf_document:
-    fig_height: 3
-    fig_width: 5
-  word_document:
-    fig_height: 3
-    fig_width: 5
+title: "Community Detection with the PhilosopherNet"
+date: "6/15/2021"
 ---
+
+<style type="text/css">
+h1.title {
+  text-align: center;
+}
+h4.date {
+  text-align: center;
+}
+</style>
 
 ```{r, setup, include=FALSE}
 library(mosaic)   # Load additional packages here 
@@ -27,7 +25,6 @@ library(leaflet)
 library(htmlwidgets)
 set.seed(1)
 
-source("functions.R")
 knitr::opts_chunk$set(
   tidy=FALSE,     # display code as typed
   size="small")   # slightly smaller font for code
@@ -36,8 +33,8 @@ knitr::opts_chunk$set(
 ```{r, include=FALSE}
 toss_list = '(analytic|custom_cnm5|custom_cnm6|custom_cnm7|custom_cnm8|custom_cnm9|custom_cnm10|custom_cnm11|custom_cnm12|custom_cnm13|custom_klb0|custom_cnm0|custom_cnm1|custom_cnm2|custom_cnm3|custom_cnm4|custom_lab1|custom_lab2|custom_aflu1|custom_klb0|cnm0|cnm2|cnm3|cnm4|lab1|lab2|lab3|lab4|lab5|lab6|lab7|aflu1|klb0)'
 
-edges <- read_csv("dedges.csv")
-nodes <- read_csv("comm_nodes.csv") %>%
+edges <- read_csv("commDetect/dedges.csv")
+nodes <- read_csv("commDetect/comm_nodes.csv") %>%
   mutate(school = if_else(analytic == 1, 'Analytic', 'Continental'),
          comms = gsub('continental','Actual School',comms),
          comms = gsub(',klb1',',Kernighan-Lin Bisection',comms),

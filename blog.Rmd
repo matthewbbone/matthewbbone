@@ -1,11 +1,7 @@
 ---
 title: "Blog"
+css: "styles.css"
 ---
-<style type="text/css">
-h1.title {
-  text-align: center;
-}
-</style>
 
 <center>
 Many of these posts include data visualizations or models. All of the code for these projects can be found at my github account, linked in the header.

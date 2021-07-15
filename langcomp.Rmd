@@ -1,16 +1,8 @@
 ---
 title: "Language Competition: An Abrams-Strogatz inspired agent-based model"
 date: "6/4/20"
+css: "styles.css"
 ---
-
-<style type="text/css">
-h1.title {
-  text-align: center;
-}
-h4.date {
-  text-align: center;
-}
-</style>
 
 <center>
 <img src="langComp/lang.png" width="500">

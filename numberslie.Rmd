@@ -1,16 +1,8 @@
 ---
 title: "Numbers don't lie..."
 date: "6/10/20"
+css: "styles.css"
 ---
-
-<style type="text/css">
-h1.title {
-  text-align: center;
-}
-h4.date {
-  text-align: center;
-}
-</style>
 
 <center>
 <img src="numbersLie/police.jpg" width="500">

@@ -1,18 +1,11 @@
 ---
 title: "Philosopher Network Visualization"
 date: "10/15/20"
+css: "styles.css"
 output:
   html_document:
     df_print: paged
 ---
-<style type="text/css">
-h1.title {
-  text-align: center;
-}
-h4.date {
-  text-align: center;
-}
-</style>
 
 
 ```{r, setup, include=FALSE}

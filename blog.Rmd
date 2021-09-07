@@ -52,6 +52,8 @@ Many of these posts include data visualizations or models. All of the code for t
 
 [See more...](https://matthewbbone.github.io/matthewbbone/langcomp.html)
 
+<div style="text-align: right">6/5/20</div>
+
 <center>
 <img src="blogPosts/lang.PNG" width="400">
 </center>

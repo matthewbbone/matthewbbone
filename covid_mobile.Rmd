@@ -124,7 +124,7 @@ final_plot <- bscols(widths = c(12,12),
        widgets,
        cmb_fig)
 
-#save_html(final_plot, file = "C:/Users/matth/Desktop/Coding Projects/Rstudio/matthewbbone/covidMobile/covidplot.html")
+save_html(final_plot, file = "C:/Users/matth/Documents/codingProjects/Rstudio/matthewbbone/covidMobile/covidplot.html")
 
 final_plot
 ```

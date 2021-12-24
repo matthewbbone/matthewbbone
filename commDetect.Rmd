@@ -98,7 +98,7 @@ nodes
 
 <center>
 ```{r, echo=FALSE}
-final_plot <- visNetwork(nodes, edges, width = "600px", height="600px") %>%
+final_plot <- visNetwork(nodes, edges) %>%
   visPhysics(enabled = T,
              maxVelocity = 15, 
              minVelocity = 10,
@@ -121,7 +121,7 @@ final_plot <- visNetwork(nodes, edges, width = "600px", height="600px") %>%
                                hideColor = list(background = '#CD5C58',
                                                 border = '#DC3C3B')))
 
-saveWidget(frameableWidget(final_plot), file = "C:/Users/matth/Documents/codingProjects/Rstudio/matthewbbone/commDetect/detect.html", selfcontained = TRUE)
+saveWidget(frameableWidget(final_plot), file = "C:/Users/matth/Documents/codingProjects/Rstudio/matthewbbone/detect.html", selfcontained = TRUE)
 
 final_plot
 ```

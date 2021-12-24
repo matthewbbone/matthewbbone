@@ -76,7 +76,7 @@ philosophernet <- visNetwork(nodes, edges, width = "100%") %>%
   visNodes(scaling = list(min = 5, max = 30))
 
 philosophernet %>%
-  visSave(file = "C:/Users/matth/Documents/codingProjects/Rstudio/matthewbbone/philNet/philosophernet.html")
+  visSave(file = "C:/Users/matth/Documents/codingProjects/Rstudio/matthewbbone/philosophernet.html")
 ```
 
 
